@@ -1,0 +1,16 @@
+#! /bin/sh
+
+
+echo "请输入项目名称"
+
+read projectname
+
+if [ -d $projectname ];then
+		echo "project is Already exist"
+else
+		django-admin startproject $projectname
+		cd $projectname
+		python manage.py migrate
+		echo "project create ok"
+		echo "YOU CAN INPUT python manage.py runserver IP:PORT"
+fi
